@@ -1,0 +1,41 @@
+<div class="row-fluid">
+  <div class="container">
+    <% if @tasks.empty? %>
+        <span class="text-warning">There are no tasks!</span>
+    <% else %>
+        <table class="table table-hover table-bordered">
+          <thead>
+              <tr>
+                <th>Title</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Completed</th>
+                <th>Images</th>
+              </tr>
+          </thead>
+          <tbody>
+          <% @tasks.each do |task| %>
+              <tr>
+                <td>
+                  <strong><%= task.title %></strong>
+                </td>
+                <td class="text-info">
+                  <%= task.created_at %>
+                </td>
+                <td class="text-info">
+                  <%= task.updated_at %>
+                </td>
+                <td class="text-success">
+                  <%= task.completed %>
+                </td>
+                <td>
+                  <%= image_tag task.image.url(:small)%>
+                </td>>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
+  </div>
+  <div class="modal fade" id="modal"></div>
+</div>
