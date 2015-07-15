@@ -14,6 +14,7 @@ $.fn.extend {
 }
 $(document).ready () ->
   $('body').integrateDatepicker()
-
-
 $('#modal').integrateDatepicker();
+
+
+

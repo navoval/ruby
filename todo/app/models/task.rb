@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   has_attached_file :photo,
-                    :styles => { small: "64x64>", med: "100x100>", large: "200x200>" },
+                    :styles => { small: "64x64>", med: "100x100>", large: "360x360>" },
                     :url => "/assets/images/:task/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/images/:task/:style/:basename.:extension"
 

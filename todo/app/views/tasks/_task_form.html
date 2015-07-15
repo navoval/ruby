@@ -1,14 +1,39 @@
-<div class="modal-header">
-    <h1>New Task</h1>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">New Task</h3>
+        </div>
+        <%= simple_form_for @task, html: { multipart: true}, class: 'clearfix' do |f| %>
+        <div class="modal-body">
+            <div class="control-group">
+                <label>Title</label>
+                <div class="controls">
+                    <%= f.input :title, label: false, :class => 'form-control', :placeholder => "Enter Title" %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Choose Time</label>
+                <div class="controls">
+                    <%= f.input :note, label: false, :class => 'form-control', :placeholder => "Enter Note" %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Choose Time</label>
+                <div class="controls">
+                    <%= f.input :completed, as: :string, input_html: {class: 'datepicker'}, label: false, :class =>'form-control', :placeholder => "Enter Complete Time" %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Choose File</label>
+                <div class="controls">
+                    <%= f.file_field :photo %>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        <% end %>
+    </div>
 </div>
-<%= simple_form_for @task, html: { multipart: true}, class: 'clearfix' do |f| %>
-<div class="modal-body">
-    <%= f.input :title %>
-    <%= f.input :note %>
-    <%= f.input :completed, as: :string, input_html: {class: 'datepicker'} %>
-    <%= f.file_field :photo %>
-</div>
-<div class="modal-footer">
-    <%= f.submit 'Save', class: 'btn btn-primary' %>
-</div>
-<% end %>
